@@ -18,17 +18,17 @@ ActiveRecord::Schema.define(version: 2022_05_25_231941) do
     t.float "net_worth"
   end
 
-  create_table "gametitles", force: :cascade do |t|
+  create_table "games", force: :cascade do |t|
     t.string "title"
     t.string "released"
-    t.integer "sub_id"
+    t.integer "subsidiarie_id"
   end
 
   create_table "subsidiaries", force: :cascade do |t|
     t.string "name"
     t.float "net_worth"
     t.integer "established"
-    t.integer "owner_id"
+    t.integer "companie_id"
   end
 
 end

@@ -3,7 +3,19 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    
+  end
+
+  get "/companies/:id" do
+    companies = Companie.find(params[:id])
+
+    companies.to_json(include::subsidiaries)
+  end
+
+  get "/games" do
+   games = Game.all.order(:title).limit(10)
+
+   games.to_json
   end
 
 end
