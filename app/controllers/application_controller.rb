@@ -6,16 +6,40 @@ class ApplicationController < Sinatra::Base
     
   end
 
-  get "/companies/:id" do
-    companies = Companie.find(params[:id])
+  get "/companies" do
+    companies = Companie.all
 
     companies.to_json(include::subsidiaries)
   end
 
+  get "/companies/:id" do
+    companies = Companie.find(params[:id])
+
+    companies.to_json
+  end
+
+  get "/subsidiaries" do
+    subsidiaries = Subsidiarie.all
+
+    subsidiaries.to_json
+  end
+
+  get "/subsidiaries/:id" do
+    subsidiaries = Subsidiarie.find(params[:id])
+
+    subsidiaries.to_json(include::games)
+  end
+
   get "/games" do
-   games = Game.all.order(:title).limit(10)
+   games = Game.all
 
    games.to_json
   end
+
+  get "/games/:id" do
+    games = Game.find(params[:id])
+ 
+    games.to_json
+   end
 
 end
