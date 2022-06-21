@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(version: 2022_05_25_231941) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.string "released"
-    t.integer "subsidiarie_id"
+    t.integer "subsidiary_id"
   end
 
   create_table "subsidiaries", force: :cascade do |t|
     t.string "name"
     t.float "net_worth"
     t.integer "established"
-    t.integer "companie_id"
+    t.integer "company_id"
   end
 
 end

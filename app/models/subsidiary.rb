@@ -1,29 +1,30 @@
-class Subsidiarie < ActiveRecord::Base
+class Subsidiary< ActiveRecord::Base
+belongs_to :company
 has_many :games
-belongs_to :companie 
+
 
     def self.create_with_name(name)
-        Subsidiarie.create(name: name)
+        Subsidiary.create(name: name)
     end
 
     def self.first_subsidiarie
-        Subsidiarie.first
+        Subsidiary.first
     end
 
     def self.last_subsidiarie
-        Subsidiarie.last
+        Subsidiary.last
     end
 
     def self.subsidiarie_count
-        Subsidiarie.count
+        Subsidiary.count
     end
 
     def self.find_subsidiarie_by_id(id)
-        Subsidiarie.find(id)
+        Subsidiary.find(id)
     end
 
     def self.find_subsidiarie_by_attribute(attribute)
-        Subsidiarie.find_by(attribute)
+        Subsidiary.find_by(attribute)
     end
 
     def update_by_attribute(attribute)

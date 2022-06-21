@@ -4,7 +4,7 @@ class CreateSubsidiaries < ActiveRecord::Migration[6.1]
       t.string :name
       t.float :net_worth
       t.integer :established
-      t.integer :companie_id
+      t.integer :company_id
     end
   end
 end

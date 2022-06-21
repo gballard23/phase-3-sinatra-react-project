@@ -3,31 +3,33 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    
+    companies = Company.all
+
+    companies.to_json(include: { subsidiaries: { include: :games}})
   end
 
   get "/companies" do
-    companies = Companie.all
+    companies = Company.all
 
-    companies.to_json(include::subsidiaries)
+    companies.to_json(include: { subsidiaries: { include: :games}})
   end
 
   get "/companies/:id" do
-    companies = Companie.find(params[:id])
+    companies = Company.find(params[:id])
 
-    companies.to_json
+    companies.to_json(include: { subsidiaries: { include: :games}})
   end
 
   get "/subsidiaries" do
     subsidiaries = Subsidiarie.all
 
-    subsidiaries.to_json
+    subsidiaries.to_json(include: :games)
   end
 
   get "/subsidiaries/:id" do
     subsidiaries = Subsidiarie.find(params[:id])
 
-    subsidiaries.to_json(include::games)
+    subsidiaries.to_json(include: :games)
   end
 
   get "/games" do

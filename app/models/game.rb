@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-    belongs_to :subsidiarie
+    belongs_to :subsidiary
 
     def self.create_with_title(title)
         Game.create(title: title)
