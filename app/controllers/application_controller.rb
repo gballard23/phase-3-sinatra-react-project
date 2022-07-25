@@ -21,13 +21,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/subsidiaries" do
-    subsidiaries = Subsidiarie.all
+    subsidiaries = Subsidiary.all
 
     subsidiaries.to_json(include: :games)
   end
 
   get "/subsidiaries/:id" do
-    subsidiaries = Subsidiarie.find(params[:id])
+    subsidiaries = Subsidiary.find(params[:id])
 
     subsidiaries.to_json(include: :games)
   end
