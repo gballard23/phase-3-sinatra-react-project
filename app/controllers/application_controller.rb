@@ -99,4 +99,12 @@ class ApplicationController < Sinatra::Base
 
     games.to_json
   end
+
+  delete "/companies/:id" do
+    company = Company.find(params[:id])
+  
+    company.destroy
+  
+    company.to_json
+   end
 end
