@@ -100,11 +100,27 @@ class ApplicationController < Sinatra::Base
     games.to_json
   end
 
+  patch '/companies/:id' do
+    company = Company.find(params[:id])
+    company.update(
+      net_worth: params[:net_worth],
+    )
+    company.to_json
+  end
+
   delete "/companies/:id" do
     company = Company.find(params[:id])
   
     company.destroy
   
     company.to_json
+   end
+
+   delete "/games/:id" do
+    games = Game.find(params[:id])
+
+    games.destroy
+
+    games.to_json
    end
 end

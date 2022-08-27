@@ -26,5 +26,8 @@ has_many :games, through: :subsidiaries
         Company.find_by(attribute)
     end
     
+    def update_with_attributes(attributes)
+        self.update(attributes)
+    end
 
 end
