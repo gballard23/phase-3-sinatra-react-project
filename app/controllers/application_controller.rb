@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   get "/companies" do
     companies = Company.all
 
-    companies.to_json(companies.to_json(include: { subsidiaries: { include: :games}}))
+    companies.to_json(include: { subsidiaries: { include: :games}})
   end
 
   get "/companies/:id" do
