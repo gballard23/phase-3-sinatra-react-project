@@ -42,3 +42,5 @@ The tables give each new set of data its own unique id called their primary key 
 what the relations are between data from other table we give the primary key to the other table as a foreign key. 
 Active record can now map the relations and showing that the company Sony owns the subsidiary Bungie therefore owning
 the Games Destiny and Destiny 2. 
+
+This repository has all the code needed to run this Sinatra backend. Fork and clone this repository to get started. Then, run bundle install to install the gems if neccessary.
