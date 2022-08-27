@@ -8,31 +8,6 @@ class ApplicationController < Sinatra::Base
     companies.to_json(include: { subsidiaries: { include: :games}})
   end
 
-  post "/" do 
-    companies = Company.create(
-      name: params[:name],
-      established: params[:established],
-      net_worth: params[:net_worth]
-    )
-
-    subsidiaries = Subsidiary.create(
-      name: params[:name],
-      net_worth: params[:net_worth],
-      established: params[:established],
-      company_id: params[:company_id]
-    )
-
-    games = Game.create(
-      title: params[:title],
-      released: params[:released],
-      subsidiary_id: params[:subsidiary_id]
-    )
-
-    companies.to_json
-    subsidiaries.to_json
-    games.to_json
-  end
-
   get "/companies" do
     companies = Company.all
 
@@ -58,7 +33,7 @@ class ApplicationController < Sinatra::Base
   get "/subsidiaries" do
     subsidiaries = Subsidiary.all
 
-    subsidiaries.to_json
+    subsidiaries.to_json(include: :games)
   end
 
   get "/subsidiaries/:id" do
