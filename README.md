@@ -44,3 +44,6 @@ Active record can now map the relations and showing that the company Sony owns t
 the Games Destiny and Destiny 2. 
 
 This repository has all the code needed to run this Sinatra backend. Fork and clone this repository to get started. Then, run bundle install to install the gems if neccessary.
+
+Learn.co Educational Content License
+Copyright (c) 2021 Flatiron School, Inc
